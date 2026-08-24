@@ -48,7 +48,7 @@ jobs:
         run: |
           mkdir -p dist
 
-          zip -r "dist/chzzk-vod-extension-v${{ steps.version.outputs.version }}.zip" . \
+          zip -r "dist/cheese-slicer-v${{ steps.version.outputs.version }}.zip" . \
             -x ".git/*" \
                ".github/*" \
                "dist/*" \
@@ -61,6 +61,6 @@ jobs:
         run: |
           gh release create \
             "v${{ steps.version.outputs.version }}" \
-            "dist/chzzk-vod-extension-v${{ steps.version.outputs.version }}.zip" \
-            --title "치지직 VOD 익스텐션 v${{ steps.version.outputs.version }}" \
+            "dist/cheese-slicer-v${{ steps.version.outputs.version }}.zip" \
+            --title "치즈 슬라이서 v${{ steps.version.outputs.version }}" \
             --generate-notes
