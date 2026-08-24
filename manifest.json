@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "치즈 슬라이서",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "치지직 VOD의 현재 재생 위치를 치즈 슬라이스로 전송합니다.",
   "permissions": [
     "activeTab",
@@ -10,7 +10,7 @@
     "cookies"
   ],
   "host_permissions": [
-    "https://chzzk.naver.com/*"
+    "https://*.chzzk.naver.com/*"
   ],
   "action": {
     "default_title": "치즈 슬라이서",

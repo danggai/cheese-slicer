@@ -1,5 +1,7 @@
 let currentVideo = null;
-let currentUrl = null;
+let currentUrl = null
+const videoUrlPattern = /^https:\/\/(?:m\.)?chzzk\.naver\.com\/video\/(\d+)(?:[\/?#].*)?$/
+
 
 async function loadSettings() {
     const settings = await chrome.storage.local.get({
@@ -101,9 +103,7 @@ async function loadVideoInfo() {
 
     const url = tab.url || "";
 
-    const match = url.match(
-        /^https:\/\/chzzk\.naver\.com\/video\/(\d+)(?:[\/?#].*)?$/
-    );
+    const match = url.match(videoUrlPattern);
 
     if (!match) {
         showError("치지직 영상 페이지에서 실행해주세요.");
@@ -161,7 +161,7 @@ async function loadVideoInfo() {
 
 function updateVideoInfo() {
     const match = currentUrl.match(
-        /^https:\/\/chzzk\.naver\.com\/video\/(\d+)/
+        videoUrlPattern
     );
 
     const videoId = match ? match[1] : "-";
