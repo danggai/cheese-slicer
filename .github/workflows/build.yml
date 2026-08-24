@@ -1,0 +1,66 @@
+name: Build & Release Extension
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read version from manifest.json
+        id: version
+        shell: bash
+        run: |
+          VERSION=$(jq -r '.version' manifest.json)
+
+          if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
+            echo "manifest.json에서 version을 찾을 수 없습니다."
+            exit 1
+          fi
+
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Version: $VERSION"
+
+      - name: Check existing release
+        id: release_check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "v${{ steps.version.outputs.version }}" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Release v${{ steps.version.outputs.version }} already exists."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "Release v${{ steps.version.outputs.version }} does not exist."
+          fi
+
+      - name: Create ZIP
+        if: steps.release_check.outputs.exists == 'false'
+        run: |
+          mkdir -p dist
+
+          zip -r "dist/chzzk-vod-extension-v${{ steps.version.outputs.version }}.zip" . \
+            -x ".git/*" \
+               ".github/*" \
+               "dist/*" \
+               "*.zip"
+
+      - name: Create GitHub Release
+        if: steps.release_check.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create \
+            "v${{ steps.version.outputs.version }}" \
+            "dist/chzzk-vod-extension-v${{ steps.version.outputs.version }}.zip" \
+            --title "치지직 VOD 익스텐션 v${{ steps.version.outputs.version }}" \
+            --generate-notes
