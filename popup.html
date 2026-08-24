@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>치즈 슬라이서</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="container">
+    <div class="title">치즈 슬라이서</div>
+
+    <button id="openButton" class="open-button" disabled>
+        치즈 슬라이스로 이동
+    </button>
+
+    <div id="videoInfo" class="video-info">
+        불러오는 중...
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="settings">
+        <label>
+            <span>구간 길이</span>
+            <div class="input-wrap">
+                <input id="duration" type="number" min="1" max="3600" value="60">
+                <span>초</span>
+            </div>
+        </label>
+
+        <label>
+            <span>해상도</span>
+            <select id="resolution">
+                <option value="max">최고화질</option>
+                <option value="1080">1080p</option>
+                <option value="720">720p</option>
+                <option value="480">480p</option>
+                <option value="360">360p</option>
+            </select>
+        </label>
+    </div>
+    
+    <div class="login-row">
+        <div id="loginStatus" class="login-status">
+            로그인 상태 확인 중...
+        </div>
+
+        <label class="checkbox-label">
+            <input id="sendLoginInfo" type="checkbox">
+            <span>로그인 정보 전달</span>
+        </label>
+    </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>

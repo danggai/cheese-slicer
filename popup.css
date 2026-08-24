@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 320px;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Noto Sans KR", sans-serif;
+    color: #222;
+    background: #fff;
+}
+
+.container {
+    padding: 16px;
+}
+
+.title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.login-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.login-status {
+    font-size: 12px;
+    color: #666;
+}
+
+.login-status.logged-in {
+    color: #16803c;
+}
+
+.login-status.logged-out {
+    color: #888;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    font-size: 11px;
+    color: #666;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    width: 13px;
+    height: 13px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.video-info {
+    padding: 12px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.video-info > div + div {
+    margin-top: 7px;
+}
+
+.label {
+    color: #888;
+    font-size: 11px;
+}
+
+.value {
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.open-button {
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 12px;
+    background: #111;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.open-button:hover {
+    background: #333;
+}
+
+.open-button:disabled {
+    background: #ccc;
+    cursor: default;
+}
+
+.divider {
+    height: 1px;
+    background: #eee;
+    margin: 16px 0;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.settings label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input,
+select {
+    height: 32px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    padding: 0 8px;
+    font-size: 13px;
+}
+
+.settings input[type="number"] {
+    width: 75px;
+}
+
+select {
+    width: 125px;
+}
