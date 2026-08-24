@@ -1,7 +1,7 @@
 {
-  "manifest_version": 1,
+  "manifest_version": 3,
   "name": "치즈 슬라이서",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "치지직 VOD의 현재 재생 위치를 치즈 슬라이스로 전송합니다.",
   "permissions": [
     "activeTab",
@@ -14,6 +14,18 @@
   ],
   "action": {
     "default_title": "치즈 슬라이서",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logo.png",
+      "32": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    }
+  },
+  "icons": {
+    "16": "logo.png",
+    "32": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
   }
 }
