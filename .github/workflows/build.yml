@@ -3,7 +3,7 @@ name: Build & Release Extension
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: write
