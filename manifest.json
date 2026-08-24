@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 1,
   "name": "치즈 슬라이서",
   "version": "1.0.0",
   "description": "치지직 VOD의 현재 재생 위치를 치즈 슬라이스로 전송합니다.",
